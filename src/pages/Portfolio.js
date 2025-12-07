@@ -131,7 +131,7 @@ export default function Portfolio() {
             className="relative -mx-4 md:-mx-10"
             style={{ transform: `translateY(${scrollY * 0.05}px)` }}
           >
-            <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 text-fog text-center transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 text-fog text-left transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Movement <span className="text-gold">&</span> Emotion
             </h2>
             <div className="relative h-[70vh] md:h-[80vh]">
@@ -240,7 +240,7 @@ export default function Portfolio() {
             style={{ transform: `translateY(${scrollY * -0.03}px)` }}
           >
             {/* Animated Title - triggers on scroll */}
-            <h2 className={`text-3xl md:text-5xl font-tangerine mb-12 text-fog text-center transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className={`text-3xl md:text-5xl font-tangerine mb-12 text-fog text-left transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.1s' }}>Aparicio</span>{' '}
               <span className={`inline-block text-gold transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.3s' }}>Bambi</span>{' '}
               <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.5s' }}>!</span>
@@ -259,16 +259,20 @@ export default function Portfolio() {
               <div className={`flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.6s' }}>
                 <div className={`relative group p-8 ${aboutInView ? 'animate-float' : ''}`}>
                   {/* Glow effect behind image - expanded container */}
-                  <div className="absolute inset-0 rounded-full bg-gold/30 blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 rounded-full bg-gold/30 blur-md scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   {/* Always-on subtle glow */}
-                  <div className="absolute inset-0 rounded-full bg-gold/10 blur-xl scale-125"></div>
-                  {/* Profile image */}
+                  <div className="absolute inset-0 rounded-full bg-gold/10 blur-md scale-125"></div>
+                  {/* Profile image container */}
                   <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gold shadow-2xl shadow-gold/40">
                     <img
                       src="/bambi_b_.png"
                       alt="Aparicio Bambi"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
+                    {/* Gold-black shimmer overlay on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden rounded-full">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+                    </div>
                   </div>
                 </div>
               </div>
