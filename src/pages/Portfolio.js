@@ -226,10 +226,17 @@ export default function Portfolio() {
               <span className="inline-block animate-fadeInWord" style={{ animationDelay: '0.6s' }}>!</span>
             </h2>
 
-            {/* Battle Layout: Photo Top-Right, Text Bottom-Left */}
-            <div className="flex flex-col gap-8 md:gap-12">
-              {/* Top Row - Profile Image (Right aligned) */}
-              <div className="flex justify-end animate-slideInRight">
+            {/* Battle Layout: Text Left, Photo Mid-Right */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              {/* Left Side - Text */}
+              <div className="flex-1 animate-slideInLeft">
+                <p className="text-fog/80 text-lg md:text-xl leading-relaxed text-balance font-light max-w-xl">
+                  Bambi is a visual storyteller specializing in evocative short-form and documentary work. With a background in cinematography and editing, our approach blends atmospheric lighting, cinematic pacing, and an attention to emotional detail.
+                </p>
+              </div>
+
+              {/* Right Side - Profile Image (mid-right) */}
+              <div className="flex-shrink-0 animate-slideInRight">
                 <div className="relative group">
                   {/* Glow effect behind image */}
                   <div className="absolute inset-0 rounded-full bg-gold/20 blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -242,13 +249,6 @@ export default function Portfolio() {
                     />
                   </div>
                 </div>
-              </div>
-
-              {/* Bottom Row - Text (Left aligned) */}
-              <div className="flex justify-start animate-slideInLeft">
-                <p className="text-fog/80 text-lg md:text-xl leading-relaxed text-balance font-light max-w-xl">
-                  Bambi is a visual storyteller specializing in evocative short-form and documentary work. With a background in cinematography and editing, our approach blends atmospheric lighting, cinematic pacing, and an attention to emotional detail.
-                </p>
               </div>
             </div>
           </section>
