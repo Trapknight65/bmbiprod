@@ -334,9 +334,9 @@ export default function Portfolio() {
                 </nav>
               </div>
               <div>
-                <h2 className="text-2xl font-tangerine mb-6 text-fog">Let Us Create Together</h2>
+                <h2 id="contact" className="text-2xl font-tangerine mb-6 text-fog">Let Us Create Together</h2>
                 <p className="text-fog/60 mb-6 text-sm">For collaborations, bookings, or inquiries.</p>
-                <form id="contact" className="space-y-4 mb-8">
+                <form className="space-y-4 mb-8">
                   <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-fog/20 text-fog placeholder-fog/40 focus:outline-none focus:border-gold/50 transition-all" />
                   <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-fog/20 text-fog placeholder-fog/40 focus:outline-none focus:border-gold/50 transition-all" />
                   <textarea placeholder="Your Message" rows="4" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-fog/20 text-fog placeholder-fog/40 focus:outline-none focus:border-gold/50 transition-all resize-none"></textarea>
