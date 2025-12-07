@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FloatingActionButtons from '../components/FloatingActionButtons';
 import { fetchChannelVideos } from '../services/youtubeService';
+import useInView from '../hooks/useInView';
+import useParallax from '../hooks/useParallax';
 
 export default function Portfolio() {
   const [currentProject, setCurrentProject] = useState(0);
@@ -13,6 +15,13 @@ export default function Portfolio() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isMuted, setIsMuted] = useState(true);
   const [error, setError] = useState(null);
+
+  // Scroll-triggered animations
+  const [aboutRef, aboutInView] = useInView({ threshold: 0.2 });
+  const [videosRef, videosInView] = useInView({ threshold: 0.1 });
+
+  // Parallax effect
+  const { scrollY } = useParallax();
 
   useEffect(() => {
     const loadVideos = async () => {
@@ -116,8 +125,15 @@ export default function Portfolio() {
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 md:px-10 py-20 space-y-32">
 
-          {/* Featured Projects Slider */}
-          <section className="relative -mx-4 md:-mx-10">
+          {/* Featured Projects Slider - "Movement and Emotion" */}
+          <section
+            ref={videosRef}
+            className="relative -mx-4 md:-mx-10"
+            style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+          >
+            <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 text-fog text-center transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Movement <span className="text-gold">&</span> Emotion
+            </h2>
             <div className="relative h-[70vh] md:h-[80vh]">
               {loading ? (
                 <div className="w-full h-full flex items-center justify-center">
@@ -218,25 +234,29 @@ export default function Portfolio() {
           </section>
 
           {/* About - Pokemon Battle Style */}
-          <section className="max-w-6xl mx-auto overflow-hidden">
-            {/* Animated Title */}
-            <h2 className="text-3xl md:text-5xl font-tangerine mb-12 text-fog text-center">
-              <span className="inline-block animate-fadeInWord" style={{ animationDelay: '0s' }}>Aparicio</span>{' '}
-              <span className="inline-block animate-fadeInWord text-gold" style={{ animationDelay: '0.3s' }}>Bambi</span>{' '}
-              <span className="inline-block animate-fadeInWord" style={{ animationDelay: '0.6s' }}>!</span>
+          <section
+            ref={aboutRef}
+            className="max-w-6xl mx-auto overflow-hidden"
+            style={{ transform: `translateY(${scrollY * -0.03}px)` }}
+          >
+            {/* Animated Title - triggers on scroll */}
+            <h2 className={`text-3xl md:text-5xl font-tangerine mb-12 text-fog text-center transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.1s' }}>Aparicio</span>{' '}
+              <span className={`inline-block text-gold transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.3s' }}>Bambi</span>{' '}
+              <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.5s' }}>!</span>
             </h2>
 
             {/* Battle Layout: Text Left, Photo Mid-Right */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
               {/* Left Side - Text */}
-              <div className="flex-1 animate-slideInLeft">
+              <div className={`flex-1 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`} style={{ transitionDelay: '0.4s' }}>
                 <p className="text-fog/80 text-lg md:text-xl leading-relaxed text-balance font-light max-w-xl">
                   Bambi is a visual storyteller specializing in evocative short-form and documentary work. With a background in cinematography and editing, our approach blends atmospheric lighting, cinematic pacing, and an attention to emotional detail.
                 </p>
               </div>
 
               {/* Right Side - Profile Image (mid-right) */}
-              <div className="flex-shrink-0 animate-slideInRight">
+              <div className={`flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.6s' }}>
                 <div className="relative group">
                   {/* Glow effect behind image */}
                   <div className="absolute inset-0 rounded-full bg-gold/20 blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
