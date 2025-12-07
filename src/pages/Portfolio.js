@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Header from './Header';
-import Footer from './Footer';
-import FloatingActionButtons from './FloatingActionButtons';
-import { fetchChannelVideos } from './services/youtubeService';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import FloatingActionButtons from '../components/FloatingActionButtons';
+import { fetchChannelVideos } from '../services/youtubeService';
 
 export default function Portfolio() {
   const [currentProject, setCurrentProject] = useState(0);

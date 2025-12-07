@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Portfolio from './Portfolio';
-import About from './About';
-import MultiStepForm from './MultiStepForm';
-import Discover from './Discover';
-import ClientFeedback from './ClientFeedback';
-import CookieSettings from './CookieSettings';
-import TermsConditions from './TermsConditions';
-import PrivacyPolicy from './PrivacyPolicy';
+import Portfolio from './pages/Portfolio';
+import About from './pages/About';
+import MultiStepForm from './components/forms/MultiStepForm';
+import Discover from './pages/Discover';
+import ClientFeedback from './pages/ClientFeedback';
+import CookieSettings from './pages/CookieSettings';
+import TermsConditions from './pages/TermsConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
-import LoadingScreen from './LoadingScreen';
-import Background from './Background';
+import LoadingScreen from './components/LoadingScreen';
+import Background from './components/Background';
 
 function App() {
   const [route, setRoute] = useState(window.location.hash || '#/');

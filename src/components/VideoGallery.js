@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchChannelVideos } from './services/youtubeService';
+import { fetchChannelVideos } from '../services/youtubeService';
 
 export default function VideoGallery({ channelId }) {
     const [videos, setVideos] = useState([]);

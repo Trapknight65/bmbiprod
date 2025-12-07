@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import ContactFormWidget from './ContactFormWidget';
-import Footer from './Footer';
-import FloatingActionButtons from './FloatingActionButtons';
-import VideoGallery from './VideoGallery';
-import InstagramGallery from './InstagramGallery';
+import Header from '../components/Header';
+import ContactFormWidget from '../components/forms/ContactFormWidget';
+import Footer from '../components/Footer';
+import FloatingActionButtons from '../components/FloatingActionButtons';
+import VideoGallery from '../components/VideoGallery';
+import InstagramGallery from '../components/InstagramGallery';
 
 export default function Discover() {
     const [showMobileForm, setShowMobileForm] = useState(false);

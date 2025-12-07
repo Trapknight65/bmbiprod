@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import FloatingActionButtons from './FloatingActionButtons';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import FloatingActionButtons from '../components/FloatingActionButtons';
 
 export default function TermsConditions() {
     return (

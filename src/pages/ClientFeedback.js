@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import FloatingActionButtons from './FloatingActionButtons';
-import FeedbackFormWidget from './FeedbackFormWidget';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import FloatingActionButtons from '../components/FloatingActionButtons';
+import FeedbackFormWidget from '../components/forms/FeedbackFormWidget';
 
 export default function ClientFeedback() {
     const [showMobileForm, setShowMobileForm] = useState(false);

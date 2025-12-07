@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchInstagramMedia } from './services/instagramService';
+import { fetchInstagramMedia } from '../services/instagramService';
 
 export default function InstagramGallery() {
     const [media, setMedia] = useState([]);
