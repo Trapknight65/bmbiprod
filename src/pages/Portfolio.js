@@ -248,20 +248,22 @@ export default function Portfolio() {
 
             {/* Battle Layout: Text Left, Photo Mid-Right */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-              {/* Left Side - Text */}
+              {/* Left Side - Text with floating animation */}
               <div className={`flex-1 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`} style={{ transitionDelay: '0.4s' }}>
-                <p className="text-fog/80 text-lg md:text-xl leading-relaxed text-balance font-light max-w-xl">
+                <p className={`text-fog/80 text-lg md:text-xl leading-relaxed text-balance font-light max-w-xl ${aboutInView ? 'animate-float-slow' : ''}`}>
                   Bambi is a visual storyteller specializing in evocative short-form and documentary work. With a background in cinematography and editing, our approach blends atmospheric lighting, cinematic pacing, and an attention to emotional detail.
                 </p>
               </div>
 
-              {/* Right Side - Profile Image (mid-right) */}
+              {/* Right Side - Profile Image (mid-right) with floating animation */}
               <div className={`flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.6s' }}>
-                <div className="relative group">
-                  {/* Glow effect behind image */}
-                  <div className="absolute inset-0 rounded-full bg-gold/20 blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  {/* Profile image - reduced size */}
-                  <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gold shadow-2xl shadow-gold/30">
+                <div className={`relative group p-8 ${aboutInView ? 'animate-float' : ''}`}>
+                  {/* Glow effect behind image - expanded container */}
+                  <div className="absolute inset-0 rounded-full bg-gold/30 blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Always-on subtle glow */}
+                  <div className="absolute inset-0 rounded-full bg-gold/10 blur-xl scale-125"></div>
+                  {/* Profile image */}
+                  <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gold shadow-2xl shadow-gold/40">
                     <img
                       src="/bambi_b_.png"
                       alt="Aparicio Bambi"
