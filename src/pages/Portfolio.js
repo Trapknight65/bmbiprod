@@ -273,6 +273,12 @@ export default function Portfolio() {
           >
             {/* Title with Photo inline on mobile */}
             <div className="flex items-center gap-4 mb-8 md:mb-12">
+              {/* Animated Title - triggers on scroll */}
+              <h2 className={`text-3xl md:text-5xl font-tangerine text-fog text-left transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.1s' }}>Aparicio</span>{' '}
+                <span className={`inline-block text-gold transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.3s' }}>Bambi</span>{' '}
+                <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.5s' }}>!</span>
+              </h2>
               {/* Photo - inline on mobile, hidden here on desktop */}
               <div className={`md:hidden flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
                 <div className="relative group">
@@ -285,12 +291,6 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-              {/* Animated Title - triggers on scroll */}
-              <h2 className={`text-3xl md:text-5xl font-tangerine text-fog text-left transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.1s' }}>Aparicio</span>{' '}
-                <span className={`inline-block text-gold transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.3s' }}>Bambi</span>{' '}
-                <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.5s' }}>!</span>
-              </h2>
             </div>
 
             {/* Battle Layout: Text Left, Photo Mid-Right (desktop only for large photo) */}
