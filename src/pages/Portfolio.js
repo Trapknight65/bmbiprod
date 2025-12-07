@@ -158,7 +158,7 @@ export default function Portfolio() {
           <section
             id="videos"
             ref={videosRef}
-            className="relative -mx-4 md:-mx-10 scroll-mt-20"
+            className="relative -mx-4 md:-mx-10 scroll-mt-32"
             style={{ transform: `translateY(${scrollY * 0.05}px)` }}
           >
             <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 text-fog text-left transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -267,7 +267,7 @@ export default function Portfolio() {
           <section
             id="about"
             ref={aboutRef}
-            className="max-w-6xl mx-auto overflow-hidden scroll-mt-20"
+            className="max-w-6xl mx-auto overflow-hidden scroll-mt-32"
             style={{ transform: `translateY(${scrollY * -0.03}px)` }}
           >
             {/* Animated Title - triggers on scroll */}
@@ -307,7 +307,7 @@ export default function Portfolio() {
           </section>
 
           {/* Explore & Contact */}
-          <section id="contact" className="max-w-7xl mx-auto pb-20 scroll-mt-20">
+          <section id="contact" className="max-w-7xl mx-auto pb-20 scroll-mt-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               <div>
                 <h2 className="text-2xl font-tangerine mb-8 uppercase tracking-widest">Explore More</h2>
