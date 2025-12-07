@@ -162,7 +162,7 @@ export default function Portfolio() {
             className="relative -mx-4 md:-mx-10 scroll-mt-32"
             style={{ transform: `translateY(${scrollY * 0.05}px)` }}
           >
-            <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 p-y-3.14 text-fog text-left transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 p-x-3.14 text-fog text-left transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Movement <span className="text-gold">&</span> Emotion
             </h2>
             <div className="relative h-[70vh] md:h-[80vh]">
