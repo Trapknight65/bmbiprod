@@ -86,8 +86,37 @@ export default function Portfolio() {
       <Header />
       <FloatingActionButtons />
 
+      {/* Quick Section Nav - Fixed Right */}
+      <nav className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
+        <a href="#hero" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="Top">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
+            <path fillRule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 11-1.06-1.06l7.5-7.5z" clipRule="evenodd" />
+          </svg>
+          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">Top</span>
+        </a>
+        <a href="#videos" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="Videos">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
+            <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
+          </svg>
+          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">Videos</span>
+        </a>
+        <a href="#about" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="About">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
+            <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+          </svg>
+          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">About</span>
+        </a>
+        <a href="#contact" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="Contact">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
+            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+          </svg>
+          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">Contact</span>
+        </a>
+      </nav>
+
       {/* Hero Section - Full Screen Video */}
-      <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+      <section id="hero" className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             className="w-full h-full object-cover scale-105"
@@ -127,8 +156,9 @@ export default function Portfolio() {
 
           {/* Featured Projects Slider - "Movement and Emotion" */}
           <section
+            id="videos"
             ref={videosRef}
-            className="relative -mx-4 md:-mx-10"
+            className="relative -mx-4 md:-mx-10 scroll-mt-20"
             style={{ transform: `translateY(${scrollY * 0.05}px)` }}
           >
             <h2 className={`text-3xl md:text-5xl font-tangerine mb-8 text-fog text-left transition-all duration-1000 ${videosInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -235,8 +265,9 @@ export default function Portfolio() {
 
           {/* About - Pokemon Battle Style */}
           <section
+            id="about"
             ref={aboutRef}
-            className="max-w-6xl mx-auto overflow-hidden"
+            className="max-w-6xl mx-auto overflow-hidden scroll-mt-20"
             style={{ transform: `translateY(${scrollY * -0.03}px)` }}
           >
             {/* Animated Title - triggers on scroll */}
@@ -258,10 +289,6 @@ export default function Portfolio() {
               {/* Right Side - Profile Image (mid-right) with floating animation */}
               <div className={`flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.6s' }}>
                 <div className={`relative group p-8 ${aboutInView ? 'animate-float' : ''}`}>
-                  {/* Glow effect behind image - expanded container */}
-                  <div className="absolute inset-0 rounded-full bg-gold/30 blur-md scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  {/* Always-on subtle glow */}
-                  <div className="absolute inset-0 rounded-full bg-gold/10 blur-md scale-125"></div>
                   {/* Profile image container */}
                   <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gold shadow-2xl shadow-gold/40">
                     <img
@@ -280,7 +307,7 @@ export default function Portfolio() {
           </section>
 
           {/* Explore & Contact */}
-          <section className="max-w-7xl mx-auto pb-20">
+          <section id="contact" className="max-w-7xl mx-auto pb-20 scroll-mt-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               <div>
                 <h2 className="text-2xl font-tangerine mb-8 uppercase tracking-widest">Explore More</h2>
