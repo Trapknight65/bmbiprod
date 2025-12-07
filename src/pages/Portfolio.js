@@ -88,31 +88,32 @@ export default function Portfolio() {
 
       {/* Quick Section Nav - Fixed Right */}
       <nav className="fixed right-4 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3">
-        <a href="#hero" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="Top">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
-            <path fillRule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 11-1.06-1.06l7.5-7.5z" clipRule="evenodd" />
-          </svg>
-          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">Top</span>
-        </a>
-        <a href="#videos" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="Videos">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
-            <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
-          </svg>
-          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">Videos</span>
-        </a>
-        <a href="#about" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="About">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
-            <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
-          </svg>
-          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">About</span>
-        </a>
-        <a href="#contact" className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all" title="Contact">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
-            <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-            <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-          </svg>
-          <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">Contact</span>
-        </a>
+        {[
+          { id: 'hero', label: 'Top', icon: 'M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 11-1.06-1.06l7.5-7.5z' },
+          { id: 'videos', label: 'Videos', icon: 'M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z' },
+          { id: 'about', label: 'About', icon: 'M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z' },
+          { id: 'contact', label: 'Contact', icon: 'M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z' },
+        ].map(({ id, label, icon }) => (
+          <button
+            key={id}
+            onClick={() => {
+              const el = document.getElementById(id);
+              if (el) {
+                const headerOffset = 100;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              }
+            }}
+            className="group flex items-center gap-2 p-2 md:pr-4 rounded-full bg-black/50 backdrop-blur-md border border-white/10 hover:border-gold/50 hover:bg-black/70 transition-all"
+            title={label}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-fog group-hover:text-gold transition-colors">
+              <path fillRule="evenodd" d={icon} clipRule="evenodd" />
+            </svg>
+            <span className="hidden md:inline text-fog text-sm group-hover:text-gold transition-colors">{label}</span>
+          </button>
+        ))}
       </nav>
 
       {/* Hero Section - Full Screen Video */}
@@ -270,24 +271,39 @@ export default function Portfolio() {
             className="max-w-6xl mx-auto overflow-hidden scroll-mt-32"
             style={{ transform: `translateY(${scrollY * -0.03}px)` }}
           >
-            {/* Animated Title - triggers on scroll */}
-            <h2 className={`text-3xl md:text-5xl font-tangerine mb-12 text-fog text-left transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.1s' }}>Aparicio</span>{' '}
-              <span className={`inline-block text-gold transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.3s' }}>Bambi</span>{' '}
-              <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.5s' }}>!</span>
-            </h2>
+            {/* Title with Photo inline on mobile */}
+            <div className="flex items-center gap-4 mb-8 md:mb-12">
+              {/* Photo - inline on mobile, hidden here on desktop */}
+              <div className={`md:hidden flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+                <div className="relative group">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gold shadow-lg shadow-gold/30">
+                    <img
+                      src="/bambi_b_.png"
+                      alt="Aparicio Bambi"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* Animated Title - triggers on scroll */}
+              <h2 className={`text-3xl md:text-5xl font-tangerine text-fog text-left transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.1s' }}>Aparicio</span>{' '}
+                <span className={`inline-block text-gold transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.3s' }}>Bambi</span>{' '}
+                <span className={`inline-block transition-all duration-700 ${aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '0.5s' }}>!</span>
+              </h2>
+            </div>
 
-            {/* Battle Layout: Text Left, Photo Mid-Right */}
+            {/* Battle Layout: Text Left, Photo Mid-Right (desktop only for large photo) */}
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
               {/* Left Side - Text with floating animation */}
               <div className={`flex-1 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`} style={{ transitionDelay: '0.4s' }}>
-                <p className={`text-fog/80 text-lg md:text-xl leading-relaxed text-balance font-light max-w-xl ${aboutInView ? 'animate-float-slow' : ''}`}>
+                <p className={`text-fog/80 text-base md:text-xl leading-relaxed text-balance font-light max-w-xl ${aboutInView ? 'animate-float-slow' : ''}`}>
                   Bambi is a visual storyteller specializing in evocative short-form and documentary work. With a background in cinematography and editing, our approach blends atmospheric lighting, cinematic pacing, and an attention to emotional detail.
                 </p>
               </div>
 
-              {/* Right Side - Profile Image (mid-right) with floating animation */}
-              <div className={`flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.6s' }}>
+              {/* Right Side - Profile Image (mid-right) with floating animation - hidden on mobile */}
+              <div className={`hidden md:block flex-shrink-0 transition-all duration-1000 ${aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`} style={{ transitionDelay: '0.6s' }}>
                 <div className={`relative group p-8 ${aboutInView ? 'animate-float' : ''}`}>
                   {/* Profile image container */}
                   <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gold shadow-2xl shadow-gold/40">
@@ -307,7 +323,7 @@ export default function Portfolio() {
           </section>
 
           {/* Explore & Contact */}
-          <section id="contact" className="max-w-7xl mx-auto pb-20 scroll-mt-32">
+          <section className="max-w-7xl mx-auto pb-20 scroll-mt-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               <div>
                 <h2 className="text-2xl font-tangerine mb-8 uppercase tracking-widest">Explore More</h2>
@@ -320,7 +336,7 @@ export default function Portfolio() {
               <div>
                 <h2 className="text-2xl font-tangerine mb-6 text-fog">Let Us Create Together</h2>
                 <p className="text-fog/60 mb-6 text-sm">For collaborations, bookings, or inquiries.</p>
-                <form className="space-y-4 mb-8">
+                <form id="contact" className="space-y-4 mb-8">
                   <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-fog/20 text-fog placeholder-fog/40 focus:outline-none focus:border-gold/50 transition-all" />
                   <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-fog/20 text-fog placeholder-fog/40 focus:outline-none focus:border-gold/50 transition-all" />
                   <textarea placeholder="Your Message" rows="4" className="w-full px-4 py-3 rounded-lg bg-white/5 border border-fog/20 text-fog placeholder-fog/40 focus:outline-none focus:border-gold/50 transition-all resize-none"></textarea>

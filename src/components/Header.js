@@ -20,12 +20,12 @@ export default function Header() {
             <header
                 className="fixed text-fog top-0 left-0 right-0 z-50"
                 style={{
-                    background: 'linear-gradient(145deg, rgba(20,20,20,0.15), rgba(10,10,10,0.15))',
+                    background: 'linear-gradient(145deg, rgba(20,20,20,0.15), rgba(10,10,10,0.15)) opacity(0.05)',
                     backdropFilter: 'blur(12px)',
                     borderBottom: '1px solid rgba(229,226,222,0.05)'
                 }}
             >
-                <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 py-3.14 flex items-center justify-between">
                     {/* Logo */}
                     <a
                         href="#/"
