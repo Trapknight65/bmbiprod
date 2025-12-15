@@ -45,7 +45,7 @@ export default function MultiStepForm() {
             <div className="pt-20 w-full flex items-center justify-center">
                 <div className="max-w-2xl w-full">
                     <div className="text-center mb-8">
-                        <h1 className="text-3xl md:text-4xl font-tangerine mb-2">Let us Work Together</h1>
+                        <h1 className="text-3xl md:text-4xl font-tangerine mb-2">Let Us Work Together</h1>
                         <p className="text-neutral-300">Say more about your project</p>
                     </div>
 
